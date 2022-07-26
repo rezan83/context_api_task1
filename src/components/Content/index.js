@@ -1,7 +1,9 @@
-import React from "react";
+import {useContext} from "react";
+import ThemeContext from "../../store";
 import "./Content.css";
 
-const Content = ({theme}) => {
+const Content = () => {
+    const {theme} = useContext(ThemeContext)
   return (
     <div className={`content ${theme==='light'? 'light': 'dark'}`}>
       <div className="textual">

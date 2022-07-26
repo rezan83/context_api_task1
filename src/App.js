@@ -1,16 +1,21 @@
 import { useState } from "react";
 import Content from "./components/Content";
 import Navbar from "./components/Navbar";
+import ThemeContext from "./store";
+// import ThemeContext from "./ThemeContext";
 
 function App() {
-
-  const [theme, set_theme] = useState('light')
+  const [theme, set_theme] = useState("light");
+  const toggleTheme = () => {
+    let newTheme = theme === "light" ? "dark" : "light";
+    set_theme(newTheme);
+  };
   
   return (
-    <>
-      <Navbar theme={theme} set_theme={set_theme}/>
-      <Content theme={theme} />
-    </>
+    <ThemeContext.Provider value={{theme, toggleTheme}}>
+      <Navbar />
+      <Content />
+    </ThemeContext.Provider>
   );
 }
 
