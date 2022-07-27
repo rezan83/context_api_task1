@@ -1,13 +1,27 @@
-import { useState } from "react";
+import { useReducer } from "react";
 import Content from "./components/Content";
 import Navbar from "./components/Navbar";
 import ThemeContext from "./store";
 
+const initialState = {
+  theme: "light",
+};
+
+const themeReducer = (state, action) => {
+  switch (action.type) {
+    case "TOGGLE_THEME":
+      const newTheme = state.theme === "light" ? "dark" : "light";
+      return { ...state, theme: newTheme };
+    default:
+      return state;
+  }
+};
+
 function App() {
-  const [theme, set_theme] = useState("light");
+  const [{ theme }, dispatch] = useReducer(themeReducer, initialState);
+
   const toggleTheme = () => {
-    let newTheme = theme === "light" ? "dark" : "light";
-    set_theme(newTheme);
+    dispatch({ type: "TOGGLE_THEME" });
   };
 
   return (
