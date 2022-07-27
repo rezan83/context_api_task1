@@ -1,9 +1,9 @@
 import React from "react";
 import "./Content.css";
 
-const Content = ({theme}) => {
+const Content = ({ theme }) => {
   return (
-    <div className={`content ${theme==='light'? 'light': 'dark'}`}>
+    <div className={`content ${theme === "light" ? "light" : "dark"}`}>
       <div className="textual">
         <h2>Content</h2>
         <p>
