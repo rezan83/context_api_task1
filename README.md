@@ -1,8 +1,8 @@
-# Convert from props to Context API
+# Convert from useState to useReducer
 
 ## Task:
 
-    You need to convert the React app from using props drilling to Context API
+    You need to convert the previous React app from using useState to useReducer
 
 ## Screen shots:
 
@@ -10,16 +10,16 @@
 
 ## Requirements
 
-- delete all props
-- Use Context API instead
+- delete useState
+- Use useReducer instead
 - The app should still be able to change theme by clicking on Navbar icon
 
 ## Consider this
 
-- make a store folder/file to create the context
-- try not to change variable and functions names
-- wrap the parts that need the context with provider
-- consume the context in the components with the correspondent hook
+- make your reducer function responsible of changing theme logic
+- make initial state object and put it along with the reducer as arguments for useReducer
+- your toggleTheme function should be only responsible of dispatching the action
+- you don't need to change any component except App
 
 ## Available Scripts
 
